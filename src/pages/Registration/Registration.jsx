@@ -3,6 +3,7 @@ import Form from '../../components/Form/Form'
 
 export default class Registration extends Component {
     render() {
+        
         return (
             <div>
                 <Form />
