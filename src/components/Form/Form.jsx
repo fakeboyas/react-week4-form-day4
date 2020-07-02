@@ -44,17 +44,7 @@ function Form() {
             value={email}
           />
         </div>
-        <div>
-          <input
-            className="input-form"
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Email"
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-          />
-        </div>
+       
         <div>
           <input
             className="input-form"
