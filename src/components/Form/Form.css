@@ -1,19 +1,6 @@
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@import url('httpss://fonts.googleapis.com/css?family=Roboto');
 
-.container-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 600px;
-    justify-content: center;
-
-}
-
-.container form .input-form{
-    width: 100%;
+body {
+  background:linear-gradient(to right, #78a7ba 0%, #385D6C 50%, #78a7ba 99%);
 }
 

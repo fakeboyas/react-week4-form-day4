@@ -3,19 +3,52 @@ import React, { useState } from "react";
 import "./Form.css";
 
 function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [gender, setGender] = useState("");
-  const [skill1, setSkill1] = useState("");
-  const [skill2, setSkill2] = useState("");
-  const [skill3, setSkill3] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [birthday, setBirthday] = useState("");
+  // const [gender, setGender] = useState("");
+  // const [skill1, setSkill1] = useState("");
+  // const [skill2, setSkill2] = useState("");
+  // const [skill3, setSkill3] = useState("");
+
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    birthday: "",
+    gender: "",
+    skills: [],
+  });
+
+  const handleChange = (event) => {
+    let value = event.target.value;
+    console.log(data.skills)
+    if (event.target.name === "skills") {
+      if (event.target.checked) {
+        setData({
+          ...data,
+          skills: [...data.skills, event.target.value],
+        });
+      } else {
+        setData({
+          ...data,
+          skills: data.skills.filter((skill) => skill !== value),
+        });
+      }
+    } else {
+      setData({
+        ...data,
+        [event.target.name]: value,
+      });
+    }
+  };
 
   function handleSubmit() {
     alert(
-      `Nama: ${name} \n Email: ${email}\n Password: ${password} \n Address: ${address} \n BirthDate: ${birthday}\n Gender: ${gender}\n Skill: ${skill1},${skill2},${skill3}`
+      `Nama: ${data.name} \n Email: ${data.email}\n Password: ${data.password} \n Address: ${data.address} \n BirthDate: ${data.birthday}\n Gender: ${data.gender}\n Skill: ${data.skills}`
     );
   }
   return (
@@ -25,63 +58,63 @@ function Form() {
         <div>
           <input
             className="input-form"
-            onChange={(event) => setName(event.target.value)}
+            onChange={handleChange}
             placeholder="Name"
             type="text"
             name="name"
             id="name"
-            value={name}
+            value={data.name}
           />
         </div>
         <div>
           <input
             className="input-form"
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={handleChange}
             placeholder="Email"
             type="email"
             name="email"
             id="email"
-            value={email}
+            value={data.email}
           />
         </div>
-       
+
         <div>
           <input
             className="input-form"
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={handleChange}
             placeholder="Password"
             type="password"
             name="password"
-            value={password}
+            value={data.password}
             id="password"
           />
         </div>
         <div>
           <textarea
-            onChange={(event) => setAddress(event.target.value)}
+            onChange={handleChange}
             placeholder="Address"
             name="address"
             id="address"
             cols="30"
             rows="10"
-            value={address}
+            value={data.address}
           ></textarea>
         </div>
         <div>
           <input
             className="input-form"
-            onChange={(event) => setBirthday(event.target.value)}
+            onChange={handleChange}
             placeholder="Birth Date"
             type="date"
-            name="birthDate"
+            name="birthday"
             id="birthday"
-            value={birthday}
+            value={data.birthday}
           />
         </div>
         <div>
           <input
             className="input-radio"
-            onChange={(event) => setGender(event.target.value)}
+            onChange={handleChange}
             type="radio"
             name="gender"
             id="gender1"
@@ -90,7 +123,7 @@ function Form() {
           Male
           <input
             className="input-radio"
-            onChange={(event) => setGender(event.target.value)}
+            onChange={handleChange}
             type="radio"
             name="gender"
             id="gender2"
@@ -99,30 +132,30 @@ function Form() {
           Female
         </div>
 
-        <div>
+        <div className="input-checkbox">
           <input
-            className="input-checkbox"
-            onChange={(event) => setSkill1(event.target.value)}
+            
+            onChange={handleChange}
             type="checkbox"
-            name="skill1"
+            name="skills"
             id="checkbox1"
             value="Coding"
           />
           Coding
           <input
-            className="input-checkbox"
-            onChange={(event) => setSkill2(event.target.value)}
+           
+            onChange={handleChange}
             type="checkbox"
-            name="skill2"
+            name="skills"
             id="checkbox2"
             value="Design"
           />
           Design
           <input
-          className="input-checkbox"
-            onChange={(event) => setSkill3(event.target.value)}
+         
+            onChange={handleChange}
             type="checkbox"
-            name="skill3"
+            name="skills"
             id="checkbox3"
             value="Gaming"
           />
