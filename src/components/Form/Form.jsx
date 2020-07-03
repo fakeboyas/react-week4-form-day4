@@ -25,7 +25,7 @@ function Form() {
 
   const handleChange = (event) => {
     let value = event.target.value;
-    console.log(data.skills)
+   
     if (event.target.name === "skills") {
       if (event.target.checked) {
         setData({
@@ -55,9 +55,8 @@ function Form() {
     <div className="container">
       <form className="container-form" onSubmit={handleSubmit}>
         <h1> Form Registration</h1>
-        <div>
+        <div className="input-form">
           <input
-            className="input-form"
             onChange={handleChange}
             placeholder="Name"
             type="text"
@@ -65,10 +64,8 @@ function Form() {
             id="name"
             value={data.name}
           />
-        </div>
-        <div>
+
           <input
-            className="input-form"
             onChange={handleChange}
             placeholder="Email"
             type="email"
@@ -76,11 +73,8 @@ function Form() {
             id="email"
             value={data.email}
           />
-        </div>
 
-        <div>
           <input
-            className="input-form"
             onChange={handleChange}
             placeholder="Password"
             type="password"
@@ -134,7 +128,6 @@ function Form() {
 
         <div className="input-checkbox">
           <input
-            
             onChange={handleChange}
             type="checkbox"
             name="skills"
@@ -143,7 +136,6 @@ function Form() {
           />
           Coding
           <input
-           
             onChange={handleChange}
             type="checkbox"
             name="skills"
@@ -152,7 +144,6 @@ function Form() {
           />
           Design
           <input
-         
             onChange={handleChange}
             type="checkbox"
             name="skills"
